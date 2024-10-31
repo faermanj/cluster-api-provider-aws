@@ -197,6 +197,10 @@ type AWSMachineSpec struct {
 	// CapacityReservationID specifies the target Capacity Reservation into which the instance should be launched.
 	// +optional
 	CapacityReservationID *string `json:"capacityReservationId,omitempty"`
+
+	// HostId specifies the ID of the Dedicated Host on which the instance should be launched.
+	// +optional
+	HostID *string `json:"hostId,omitempty"`
 }
 
 // CloudInit defines options related to the bootstrapping systems where
