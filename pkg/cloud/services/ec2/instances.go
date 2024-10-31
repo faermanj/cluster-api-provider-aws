@@ -253,6 +253,8 @@ func (s *Service) CreateInstance(scope *scope.MachineScope, userData []byte, use
 
 	input.CapacityReservationID = scope.AWSMachine.Spec.CapacityReservationID
 
+	input.HostID = scope.AWSMachine.Spec.HostID
+
 	s.scope.Debug("Running instance", "machine-role", scope.Role())
 	s.scope.Debug("Running instance with instance metadata options", "metadata options", input.InstanceMetadataOptions)
 	out, err := s.runInstance(scope.Role(), input)
@@ -660,6 +662,13 @@ func (s *Service) runInstance(role string, i *infrav1.Instance) (*infrav1.Instan
 		input.Placement.GroupName = &i.PlacementGroupName
 		if i.PlacementGroupPartition != 0 {
 			input.Placement.PartitionNumber = &i.PlacementGroupPartition
+		}
+	}
+
+	if i.HostID != nil {
+		input.Placement = &ec2.Placement{
+			Tenancy: aws.String("host"),
+			HostId:  i.HostID,
 		}
 	}
 
