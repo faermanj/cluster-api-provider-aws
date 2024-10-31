@@ -255,6 +255,8 @@ func (s *Service) CreateInstance(scope *scope.MachineScope, userData []byte, use
 
 	input.HostID = scope.AWSMachine.Spec.HostID
 
+	input.Affinity = scope.AWSMachine.Spec.Affinity
+
 	s.scope.Debug("Running instance", "machine-role", scope.Role())
 	s.scope.Debug("Running instance with instance metadata options", "metadata options", input.InstanceMetadataOptions)
 	out, err := s.runInstance(scope.Role(), input)
@@ -666,9 +668,13 @@ func (s *Service) runInstance(role string, i *infrav1.Instance) (*infrav1.Instan
 	}
 
 	if i.HostID != nil {
+		if i.Affinity == nil {
+			i.Affinity = aws.String("Default")
+		}
 		input.Placement = &ec2.Placement{
-			Tenancy: aws.String("host"),
-			HostId:  i.HostID,
+			Tenancy:  aws.String("host"),
+			Affinity: i.Affinity,
+			HostId:   i.HostID,
 		}
 	}
 

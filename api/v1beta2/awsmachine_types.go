@@ -201,6 +201,12 @@ type AWSMachineSpec struct {
 	// HostId specifies the ID of the Dedicated Host on which the instance should be launched.
 	// +optional
 	HostID *string `json:"hostId,omitempty"`
+
+	// Affinity specifies the dedicated host affinity setting for the instance.
+	// When affinity is set to Host, an instance launched onto a specific host always restarts on the same host if stopped.
+	// +optional
+	// +kubebuilder:validation:Enum:=Defailt;Host
+	Affinity *string `json:"affinity,omitempty"`
 }
 
 // CloudInit defines options related to the bootstrapping systems where

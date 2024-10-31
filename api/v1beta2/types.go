@@ -262,9 +262,12 @@ type Instance struct {
 	// +optional
 	CapacityReservationID *string `json:"capacityReservationId,omitempty"`
 
-	// HostId specifies the ID of the Dedicated Host on which the instance should be launched
+	// HostId specifies the ID of the dedicated host on which the instance should be launched
 	// +optional
 	HostID *string `json:"hostId,omitempty"`
+
+	// Affinity specifies the dedicated host affinity setting for the instance.
+	Affinity *string `json:"hostId,omitempty"`
 }
 
 // InstanceMetadataState describes the state of InstanceMetadataOptions.HttpEndpoint and InstanceMetadataOptions.InstanceMetadataTags
