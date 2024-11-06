@@ -671,6 +671,8 @@ func (s *Service) runInstance(role string, i *infrav1.Instance) (*infrav1.Instan
 		if i.Affinity == nil {
 			i.Affinity = aws.String("Default")
 		}
+		s.scope.Debug("Setting dedicated host to instance", "hostId", i.HostID, "affinity", i.Affinity)
+		
 		input.Placement = &ec2.Placement{
 			Tenancy:  aws.String("host"),
 			Affinity: i.Affinity,
