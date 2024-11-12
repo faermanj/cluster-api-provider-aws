@@ -1,0 +1,1 @@
+{ "LOCATION": "eastus", "SUFFIX": "375", "CAPI_MGMT_CLUSTER_RG_NAME": "wasp-shadow-mgmt-375", "CAPI_MGMT_CLUSTER_NAME": "capi-mgmt-375", "CAPZ_WORKER_CLUSTER_RG_NAME": "wasp-shadow-work-375", "CAPZ_WORKER_CLUSTER_CLUSTER_NAME": "capz-work-375", "SPN_NAME": "capi-mgmt-375-spn" }
