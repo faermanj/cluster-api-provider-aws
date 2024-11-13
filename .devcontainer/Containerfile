@@ -49,6 +49,12 @@ RUN curl -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.
 # Install tilt
 RUN curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 
+# Install aws cli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -rf awscliv2.zip aws/
+
 # Install direnv
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -y install --no-install-recommends direnv
