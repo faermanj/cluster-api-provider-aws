@@ -1,0 +1,10 @@
+# Use the latest stable Go Dev Container base image
+FROM mcr.microsoft.com/devcontainers/go:latest
+
+# Install KIND
+RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.25.0/kind-linux-amd64 && \
+    chmod +x ./kind && mv ./kind /usr/local/bin/kind
+
+# Install Kubectl
+RUN curl -LO "https://dl.k8s.io/release/v1.31.0/bin/linux/amd64/kubectl" && \
+    chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
