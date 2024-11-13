@@ -1,4 +1,5 @@
 #!/bin/bash
 
 kind --version
-kubectl --version
+kubectl version --client
+
