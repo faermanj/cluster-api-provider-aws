@@ -3,9 +3,10 @@ set -x
 
 echo "Verifying versions"
 go version
+docker --version
 kind --version
 kubectl version --client
-docker --version
+clusterctl version
 
 
 echo "Verifying system"
