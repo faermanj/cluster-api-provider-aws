@@ -7,4 +7,5 @@ kubectl version --client
 docker --version
 
 echo "Verifying system"
+newgrp docker || true
 docker ps

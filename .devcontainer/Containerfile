@@ -4,7 +4,8 @@ FROM mcr.microsoft.com/devcontainers/go:latest
 # Setup Docker
 RUN apt-get update && \
     apt-get install -y docker.io && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*    
+RUN usermod -aG docker vscode
 
 # Install KIND
 RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.25.0/kind-linux-amd64 && \
