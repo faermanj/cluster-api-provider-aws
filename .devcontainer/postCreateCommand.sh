@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 echo "Verifying versions"
 go version
@@ -9,8 +10,13 @@ docker --version
 
 echo "Verifying system"
 whoami
-newgrp docker || true
-docker ps
 pwd
-find .
+# newgrp docker || true
+docker ps
 
+# find .
+
+echo "Run a build"
+make clusterawsadm
+
+echo "Dev container is ready at $(date)"
