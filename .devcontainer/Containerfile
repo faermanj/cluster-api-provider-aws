@@ -33,7 +33,8 @@ ENTRYPOINT [ "/usr/local/share/docker-init.sh" ]
 CMD [ "sleep", "infinity" ]
 
 # Install KIND
-RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.25.0/kind-linux-amd64 && \
+ARG KIND_VERSION="v0.25.0"
+RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-amd64 && \
     chmod +x ./kind && mv ./kind /usr/local/bin/kind
 
 # Install Kubectl
@@ -44,6 +45,9 @@ RUN curl -LO "https://dl.k8s.io/release/v1.31.0/bin/linux/amd64/kubectl" && \
 RUN curl -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.8.5/clusterctl-linux-amd64 -o clusterctl && \
     install -o root -g root -m 0755 clusterctl /usr/local/bin/clusterctl && \
     rm clusterctl
+
+# Install tilt
+RUN curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 
 # Install direnv
 ENV DEBIAN_FRONTEND=noninteractive

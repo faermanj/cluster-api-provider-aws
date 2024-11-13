@@ -7,6 +7,7 @@ docker --version
 kind --version
 kubectl version --client
 clusterctl version
+tilt version
 
 
 echo "Verifying system"
