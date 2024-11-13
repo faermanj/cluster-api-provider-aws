@@ -2,4 +2,3 @@
 
 kind --version
 kubectl version --client
-
