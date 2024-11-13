@@ -51,4 +51,4 @@ RUN curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/in
 
 # Install direnv
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get -y install --no-install-recommends direnv
+RUN apt-get update && apt-get -y install --no-install-recommends direnv
