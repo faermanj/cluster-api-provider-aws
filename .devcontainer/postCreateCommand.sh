@@ -19,5 +19,7 @@ docker ps
 
 echo "Run a build"
 make clusterawsadm
+ln -sf ${PWD}/bin/clusterawsadm /usr/local/bin/clusterawsadm
+clusterawsadm version
 
 echo "Dev container is ready at $(date)"
