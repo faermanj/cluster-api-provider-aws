@@ -8,15 +8,14 @@ kind --version
 kubectl version --client
 clusterctl version
 tilt version
+aws --version
 
 
 echo "Verifying system"
 whoami
 pwd
-# newgrp docker || true
 docker ps
 
-# find .
 
 echo "Run a build"
 make clusterawsadm
