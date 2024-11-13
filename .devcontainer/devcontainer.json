@@ -3,9 +3,9 @@
     "build": {
       "dockerfile": "Containerfile"
     },
-    "mounts": [
-      "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-    ],    
+    "runArgs": ["--init", "--privileged"],
+    "mounts": ["source=dind-var-lib-docker,target=/var/lib/docker,type=volume"],
+    "overrideCommand": false,
     "customizations": {
       "vscode": {
         "extensions": [
