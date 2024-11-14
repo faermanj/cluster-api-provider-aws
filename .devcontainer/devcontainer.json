@@ -14,7 +14,7 @@
         ]
       }
     },
-    "postCreateCommand": "curl https://raw.githubusercontent.com/faermanj/cluster-api-provider-aws/refs/heads/add-dedicated-hosts/.devcontainer/postCreateCommand.sh | bash",
+    "postCreateCommand": ".devcontainer/postCreateCommand.sh",
     "forwardPorts": [22, 6443, 8080],
     "remoteUser": "vscode"
   }
