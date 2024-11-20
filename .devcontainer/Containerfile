@@ -37,12 +37,14 @@ ARG KIND_VERSION="v0.25.0"
 RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-amd64 && \
     chmod +x ./kind && mv ./kind /usr/local/bin/kind
 
-# Install Kubectl
-RUN curl -LO "https://dl.k8s.io/release/v1.31.0/bin/linux/amd64/kubectl" && \
+# Install kubectl
+ARG KUBE_VERSION="v1.31.0"
+RUN curl -LO "https://dl.k8s.io/release/${KUBE_VERSION}/bin/linux/amd64/kubectl" && \
     chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
 
 # Install clusterctl
-RUN curl -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.8.5/clusterctl-linux-amd64 -o clusterctl && \
+ARG CLUSTERCTL_VERSION="v1.8.5"
+RUN curl -L https://github.com/kubernetes-sigs/cluster-api/releases/download/${CLUSTERCTL_VERSION}/clusterctl-linux-amd64 -o clusterctl && \
     install -o root -g root -m 0755 clusterctl /usr/local/bin/clusterctl && \
     rm clusterctl
 
@@ -55,9 +57,9 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     ./aws/install && \
     rm -rf awscliv2.zip aws/
 
-# Install direnv
+# Install direnv, gh
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get -y install --no-install-recommends direnv
+RUN apt-get update && apt-get -y install --no-install-recommends direnv gh
 
 # Install k9s
 ARG K9S_VERSION="v0.32.7"
