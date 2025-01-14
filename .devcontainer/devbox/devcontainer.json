@@ -1,9 +1,6 @@
 {
   "name": "Devbox Remote Container",
-  "build": {
-    "dockerfile": "./Dockerfile",
-    "context": ".."
-  },
+  "image": "jetpackio/devbox:latest",
   "customizations": {
     "vscode": {
       "settings": {},
