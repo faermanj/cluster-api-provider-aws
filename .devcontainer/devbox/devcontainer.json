@@ -16,6 +16,7 @@
   },
 
   "postCreateCommand": "devbox install",
+  "postAttachCommand": "devbox shell",
 
   "customizations": {
     "vscode": {
