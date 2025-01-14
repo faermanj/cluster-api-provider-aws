@@ -1,5 +1,13 @@
 FROM jetpackio/devbox:latest
 
+# Install Docker CLI and KIND
+RUN apt-get update && apt-get install -y docker.io && \
+    curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.26.0/kind-linux-amd64 && \
+    chmod +x ./kind && mv ./kind /usr/local/bin/kind
+
+# Set up non-root user (if needed)
+RUN groupadd -g 1001 docker && usermod -aG docker vscode
+
 # Installing your devbox project
 WORKDIR /code
 USER root:root

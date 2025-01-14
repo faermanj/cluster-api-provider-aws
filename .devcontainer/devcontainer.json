@@ -13,5 +13,19 @@
       ]
     }
   },
-  "remoteUser": "devbox"
+  "remoteUser": "devbox",
+  "features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers-contrib/features/kind:1": {},
+		"ghcr.io/rio/features/k9s:1": {},
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+			"version": "latest",
+			"helm": "latest",
+			"minikube": "none"
+		}
+  },
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "postCreateCommand": "devbox install"
 }
