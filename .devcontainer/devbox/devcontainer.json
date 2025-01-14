@@ -2,16 +2,6 @@
   "name": "CAPA Devbox",
   
   "image": "mcr.microsoft.com/devcontainers/go:1-1.22-bookworm",
-  
-  "customizations": {
-    "vscode": {
-      "settings": {},
-      "extensions": [
-        "jetpack-io.devbox",
-        "golang.go"
-      ]
-    }
-  },
 
   "features": {
     "ghcr.io/dlouwers/devcontainer-features/devbox:1": {},
@@ -25,5 +15,17 @@
 		}
   },
 
-  "postCreateCommand": "devbox install"
+  "postCreateCommand": "devbox install",
+
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "jetpack-io.devbox",
+        "golang.go",
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"ms-azuretools.vscode-dockerr"
+      ]
+    }
+  }
 }
