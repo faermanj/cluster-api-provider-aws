@@ -1,7 +1,8 @@
 FROM jetpackio/devbox:latest
 
 USER root:root
-RUN apt-get update && apt-get install -y docker.io && \
+RUN apt-get update && \
+    apt-get install -y curl docker.io && \
     curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.26.0/kind-linux-amd64 && \
     chmod +x ./kind && mv ./kind /usr/local/bin/kind
 
