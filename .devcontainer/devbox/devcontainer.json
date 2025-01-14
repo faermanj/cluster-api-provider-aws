@@ -1,6 +1,8 @@
 {
-  "name": "Devbox Remote Container",
+  "name": "CAPA Devbox",
+  
   "image": "mcr.microsoft.com/devcontainers/go:1-1.22-bookworm",
+  
   "customizations": {
     "vscode": {
       "settings": {},
@@ -10,7 +12,7 @@
       ]
     }
   },
-  "remoteUser": "devbox",
+
   "features": {
     "ghcr.io/dlouwers/devcontainer-features/devbox:1": {},
 		"ghcr.io/devcontainers/features/docker-in-docker:2.12.0": {},
