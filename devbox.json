@@ -9,7 +9,8 @@
     "git",
     "k9s",
     "tilt",
-    "awscli2"
+    "awscli2",
+    "kustomize@latest"
   ],
   "shell": {
     "init_hook": [
